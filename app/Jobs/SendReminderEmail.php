@@ -21,7 +21,7 @@ class SendReminderEmail implements ShouldQueue
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(\App\Models\User $user)
     {
         $this->user = $user;
     }
@@ -34,7 +34,7 @@ class SendReminderEmail implements ShouldQueue
     public function handle()
     {
         $user     = $this->user;
-        $user->t1 = 2;
+        $user->t1 = 6;
         $user->save();
     }
 }
