@@ -23,8 +23,8 @@ class IndexController extends Controller
             return array('die');
         }*/
         $User  = User::where('id', '=', 1)->first();
-        $redis = Redis::connection('redis')->get('l');
-        var_dump($redis);
+        $redis = app('redis.connection');
+        var_dump($redis->get('l'));
         die();
 
         $this->dispatch(new SendReminderEmail($User));
