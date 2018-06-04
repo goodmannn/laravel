@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Jobs\SendReminderEmail;
 use App\Models\User;
 use Illuminate\Http\Request;
-
 use Illuminate\Support\Facades\Redis;
+
 
 /**
  * Created by PhpStorm.
@@ -22,7 +22,11 @@ class IndexController extends Controller
         /*if (!$request->input('id')) {
             return array('die');
         }*/
-        $User = User::where('id', '=', 1)->first();
+        $User  = User::where('id', '=', 1)->first();
+        $redis = Redis::connection('redis')->get('l');
+        var_dump($redis);
+        die();
+
         $this->dispatch(new SendReminderEmail($User));
         return $User;
 //        $redis = new \Redis();
