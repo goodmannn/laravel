@@ -16,6 +16,7 @@ class IndexController
     public function test(Request $request)
     {
         $User = new User();
-        var_dump($User);
+
+        var_dump($User->getConnection());
     }
 }
