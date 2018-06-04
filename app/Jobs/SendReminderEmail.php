@@ -14,6 +14,7 @@ class SendReminderEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    public $tries = 5;
     protected $user;
 
     /**
@@ -33,8 +34,10 @@ class SendReminderEmail implements ShouldQueue
      */
     public function handle()
     {
-        $user     = $this->user;
-        $user->t1 = 6;
-        $user->save();
+        $user = $this->user;
+        if ($user->t1 >= 0) {
+            $user->t1 = $user->t1 - 1;
+            $user->save();
+        }
     }
 }

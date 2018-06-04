@@ -19,6 +19,9 @@ class IndexController extends Controller
 {
     public function test(Request $request)
     {
+        /*if (!$request->input('id')) {
+            return array('die');
+        }*/
         $User = User::where('id', '=', 1)->first();
         $this->dispatch(new SendReminderEmail($User));
         return $User;
