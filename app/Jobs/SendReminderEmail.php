@@ -35,7 +35,7 @@ class SendReminderEmail implements ShouldQueue
     public function handle()
     {
         $user = $this->user;
-        if ($user->t1 >= 0) {
+        if ($user->t1 >= 1) {
             $user->t1 = $user->t1 - 1;
             $user->save();
         }
