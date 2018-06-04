@@ -17,6 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('goodman',function(){
-   echo 'goodman';
+Route::get('goodman', function () {
+    echo 'goodman';
 });
+
+Route::get('test', 'Api\IndexController@test');
