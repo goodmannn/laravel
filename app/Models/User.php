@@ -13,5 +13,5 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     protected $connection = 'mysql';
-    protected $table = 'table';
+    protected $table = 'table1';
 }

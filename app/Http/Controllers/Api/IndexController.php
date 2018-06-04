@@ -15,7 +15,7 @@ class IndexController
 {
     public function test(Request $request)
     {
-        $User = User::where('id', '=', 1)->first();
+        $User = new User();
         var_dump($User);
     }
 }
